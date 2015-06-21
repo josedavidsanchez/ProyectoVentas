@@ -1,0 +1,74 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="600" Width="800"
+        xmlns:views="clr-namespace:WpfApplication1.Views"
+        xmlns:viewModel="clr-namespace:WpfApplication1.ViewModel">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:ClienteViewModel}">
+            <views:Busqueda MinWidth="150" MinHeight="50"></views:Busqueda>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ProductosViewModel}">
+            <views:ListadoProductos MinHeight="100" MinWidth="150" MaxWidth="350"  BorderThickness="0"></views:ListadoProductos>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:PedidoViewModel}">
+            <views:Pedido></views:Pedido>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition  Width="5"></ColumnDefinition>
+            <ColumnDefinition  Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid x:Name="Menu" Grid.Row="0" Grid.ColumnSpan="3">
+            <ToolBar HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">
+                <StackPanel Orientation="Horizontal">
+                    <Button ToolTip="Opcion 1"  Height="30" Width="30">
+                        <ContentControl>
+                            <Image Source="imagenes/string.jpg" Stretch="Fill"></Image>
+                        </ContentControl>
+                    </Button>
+                    <Button ToolTip="Opcion 1" Margin="5,0,0,0" Height="30" Width="30">
+                        <ContentControl>
+                            <Image Source="imagenes/archivo.png" Stretch="Fill"></Image>
+                        </ContentControl>
+                    </Button>
+                    <Button ToolTip="Opcion 1" Margin="5,0,0,0"  Height="30" Width="30">
+                        <ContentControl>
+                            <Image Source="imagenes/hash.jpg" Stretch="Fill"></Image>
+                        </ContentControl>
+                    </Button>
+                </StackPanel>
+            </ToolBar>
+        </Grid>
+        <Grid x:Name="Busqueda" Grid.Row="1" Grid.ColumnSpan="3">
+            <Border BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8">
+                <ItemsControl ItemsSource="{Binding ViewModelCliente}" Margin="5"></ItemsControl>
+            </Border>
+        </Grid>
+        <Grid x:Name="Listado"  Grid.Row="3" Grid.Column="0">
+            <Border BorderBrush="#FF000000" BorderThickness="2" CornerRadius="12,12,8,8">
+                <ItemsControl ItemsSource="{Binding ViewModelProducto}" Margin="5"></ItemsControl>
+            </Border>
+        </Grid>
+        <Grid x:Name="Pedido"  Grid.Row="3" Grid.Column="2" >
+            <Border BorderBrush="#FF000000" BorderThickness="2" CornerRadius="8,8,8,8">
+                <ItemsControl ItemsSource="{Binding ViewModelPedido}" Margin="5"></ItemsControl>
+            </Border>
+        </Grid>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Label Content="10 de Abril de 2015 -"></Label>
+            <Label Content="Software Pedidos 2015 @ UnivalleSoft"></Label>
+        </StackPanel>
+    </Grid>
+</Window>

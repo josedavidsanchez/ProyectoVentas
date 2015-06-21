@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="778283cd6a504b78b48e765d5a81a857" Name="Diagram1">
+        <EntityTypeShape EntityType="DesconectadoModel.CLIENTES" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesconectadoModel.LISTA_PEDIDO" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesconectadoModel.LOGS" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesconectadoModel.PEDIDO" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesconectadoModel.PRODUCTOS" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesconectadoModel.VENDEDORES" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="DesconectadoModel.FK_CLIENTES_VENDEDORES" ManuallyRouted="false" />
+        <AssociationConnector Association="DesconectadoModel.FK_PEDIDO_CLIENTES" ManuallyRouted="false" />
+        <AssociationConnector Association="DesconectadoModel.FK_LISTA_PEDIDO_PEDIDO" ManuallyRouted="false" />
+        <AssociationConnector Association="DesconectadoModel.FK_LISTA_PEDIDO_PRODUCTOS" ManuallyRouted="false" />
+        <AssociationConnector Association="DesconectadoModel.FK_LOGS_VENDEDORES" ManuallyRouted="false" />
+        <AssociationConnector Association="DesconectadoModel.FK_VENDEDORES_VENDEDORES" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
